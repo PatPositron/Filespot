@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Palanquin');
+
+body
+{
+    background-color: white;
+    font-family: 'Palanquin', sans-serif;
+}
+
+.container
+{
+    display: grid;
+    height: 98vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas: "header header header"
+                         "left center right"
+                         "footer footer footer";
+}
+
+.center {
+    grid-area: center;
+    text-align: center;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: rgb(1, 145, 200);
+}
