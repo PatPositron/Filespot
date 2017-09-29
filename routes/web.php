@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/', 'IndexController@get');
+Route::get('/', 'IndexController@get')->name('index');
+
+Route::post('/upload', 'UploadController@post')->name('upload');
+
+Route::get('/{file}', 'FileController@get')->name('file');
+Route::get('/d/{file}', 'FileController@download')->name('file.download');
