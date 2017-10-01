@@ -1,13 +1,12 @@
 
 var downloads = 0;
-
-function setDownloads(amount) {
-    downloads = amount;
-};
+var hover = false;
 
 $('#file').hover(function() {
+    hover = true;
     $('#bigShadow').toggle();
 }, function() {
+    hover = false;
     $('#file').mouseup();
 });
 
@@ -17,12 +16,14 @@ $('#file').mousedown(function() {
     $('#flood').attr('flood-color', 'rgb(40, 75, 90)');
 
     downloads++;
-    $('#downloads').text(downloads);
+    $('#downloads').text(downloads.toLocaleString('en-US'));
 });
 
 $('#file').mouseup(function() {
     $('#triangle').attr('fill', 'rgb(1, 145, 200)');
     $('#body').attr('fill', 'rgb(1, 145, 200)');
     $('#flood').attr('flood-color', 'rgb(30, 100, 130)');
-    $('#bigShadow').toggle();
+
+    if (!hover)
+        $('#bigShadow').toggle();
 });

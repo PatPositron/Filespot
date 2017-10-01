@@ -16,6 +16,7 @@
         drag file onto page<br>
         to upload
     </p>
+
 </div>
 
 @endsection

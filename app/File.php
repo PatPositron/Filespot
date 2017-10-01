@@ -11,9 +11,10 @@ class File extends Model
 
     public static function insertNew($name, $size, $mimeType, $location, $uploader)
     {
+        $characters = 'abcdefghijklmnopqrstuvwxyz';
         $file = new File();
 
-        $file->guid = Uuid::generate(4);
+        $file->public_id = substr(str_shuffle(str_repeat($characters, 5)), 0, 5);
         $file->name = $name;
         $file->size = $size;
         $file->mimetype = $mimeType;
@@ -34,16 +35,21 @@ class File extends Model
 
     public function getPreviewUrl()
     {
-        return route('file.preview', ['file' => $this->guid]);
+        return route('file.preview', ['file' => $this->public_id]);
     }
 
     public function getDownloadUrl()
     {
-        return route('file.download', ['file' => $this->guid]);
+        return route('file.download', ['file' => $this->public_id]);
+    }
+
+    public function getFormattedDownloadCount()
+    {
+        return number_format($this->downloads);
     }
 
     public function getRouteKeyName()
     {
-        return 'guid';
+        return 'public_id';
     }
 }

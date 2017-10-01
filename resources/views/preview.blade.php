@@ -35,10 +35,10 @@
             <polygon points="135,135 5,135 135,5" fill="rgb(1, 145, 200)" filter="url(#shadow)"></polygon>
             <polygon id="triangle" points="130,130 0,130 130,0" fill="rgb(1, 145, 200)"></polygon>
 
-            <text id="downloads" x="50%" y="45%" fill="black" alignment-baseline="middle" text-anchor="middle" class="noselect svgtext">
-                {{ $file->downloads }}
+            <text id="downloads" x="50%" y="44%" fill="black" alignment-baseline="middle" text-anchor="middle" class="noselect svgtext">
+                {{ $file->getFormattedDownloadCount() }}
             </text>
-            <text x="50%" y="55%" fill="black" alignment-baseline="middle" text-anchor="middle" class="noselect svgtext">
+            <text x="50%" y="56%" fill="black" alignment-baseline="middle" text-anchor="middle" class="noselect svgtext">
                 downloads
             </text>
         </svg>
