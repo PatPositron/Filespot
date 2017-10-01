@@ -9,14 +9,14 @@ class File extends Model
 {
     protected $table = 'files';
 
-    public static function insertNew($name, $size, $mime, $location, $uploader)
+    public static function insertNew($name, $size, $mimeType, $location, $uploader)
     {
         $file = new File();
 
         $file->guid = Uuid::generate(4);
         $file->name = $name;
         $file->size = $size;
-        $file->mimetype = $mime;
+        $file->mimetype = $mimeType;
         $file->location = $location;
         $file->uploader = $uploader;
 
@@ -25,9 +25,16 @@ class File extends Model
         return $file;
     }
 
+    public function incrementDownloadCount()
+    {
+        $this->downloads++;
+
+        $this->save();
+    }
+
     public function getPreviewUrl()
     {
-        return route('file', ['file' => $this->guid]);
+        return route('file.preview', ['file' => $this->guid]);
     }
 
     public function getDownloadUrl()

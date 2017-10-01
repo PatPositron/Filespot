@@ -1,28 +1,92 @@
-@import url('https://fonts.googleapis.com/css?family=Palanquin');
+@import url('https://fonts.googleapis.com/css?family=Arvo');
 
 body
 {
     background-color: white;
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Arvo', sans-serif;
+}
+
+h1 {
+    font-size: 5vmin;
+    font-weight: bold;
+    color: rgb(1, 145, 200);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.noselect {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.handcursor {
+    cursor: pointer;
+}
+
+.defaultcursor {
+    cursor: default;
+}
+
+.noselect::selection {
+    background: none;
+}
+
+.svgtext {
+    cursor: pointer;
+    font-size: 3vmin;
 }
 
 .container
 {
     display: grid;
     height: 98vh;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
     align-items: center;
     justify-items: center;
-    grid-template-areas: "header header header"
-                         "left center right"
-                         "footer footer footer";
+    grid-template-areas: 'header header header'
+                         'left center right'
+                         'footer footer footer';
+}
+
+.header {
+    grid-area: header;
+    margin-top: 1vmin;
+    text-align: center;
 }
 
 .center {
     grid-area: center;
     text-align: center;
+    color: black;
+}
+
+.filename {
     font-size: 3vmin;
     font-weight: bold;
-    color: rgb(1, 145, 200);
+}
+
+.filecontainer {
+    display: inline-block;
+    width: 30vmin;
+    height: 40vmin;
+    cursor: pointer;
+}
+
+.hint {
+    font-size:2vmin;
+    font-weight: normal;
+    color: rgb(190, 190, 190);
+}
+
+.o {
+    display: inline-block;
+    width: 4vmin;
+    height: 4vmin;
+    background: rgb(1, 145, 200);
+    border-radius: 50%;
 }

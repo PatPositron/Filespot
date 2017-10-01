@@ -10,7 +10,19 @@
     <link href="/assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-@yield('body')
+    <div class="container">
+
+    <div class="header">
+        <a href="{{ route('index') }}" class="noselect link handcursor">
+            <h1>
+                FILESP<span class="o"></span>T
+            </h1>
+        </a>
+    </div>
+
+    @yield('body')
+
+    </div>
 </body>
 
 {{-- <script type="text/javascript">

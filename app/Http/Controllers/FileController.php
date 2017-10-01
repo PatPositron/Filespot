@@ -7,13 +7,20 @@ use App\File;
 
 class FileController extends Controller
 {
-    public function get(File $file)
+    public function preview(File $file)
     {
-        dd($file);
+        return view('preview', compact('file'));
     }
 
     public function download(File $file)
     {
-        dd($file);
+        $file->incrementDownloadCount();
+
+        $path = storage_path() . '/app/' . $file->location;
+
+        return response()->download($path, $file->name, [
+            'Content-Type' => $file->mimetype,
+            'Content-Length' => $file->size
+        ]);
     }
 }

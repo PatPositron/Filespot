@@ -37,6 +37,7 @@ class UploadController extends Controller
             return;
         }
 
+        // store file to disk
         $fileLocation = $file->store('uploaded_files/' . $uploader);
 
         // error storing file
