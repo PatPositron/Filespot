@@ -14,10 +14,12 @@
 
     <div class="header">
         <a href="{{ route('index') }}" class="noselect link handcursor">
-            <h1>
+            <h1 class="title">
                 FILESP<span class="o"></span>T
             </h1>
         </a>
+
+        @include('partials.messages')
     </div>
 
     @yield('body')
@@ -35,7 +37,6 @@
     ga('send', 'pageview');
 </script> --}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/js/main.js"></script>
 
 @yield('scripts')
 

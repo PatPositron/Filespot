@@ -13,8 +13,7 @@ class UploadController extends Controller
 
         // file DNE or invalid
         if (!($request->hasFile($inputName)) || !($request->file($inputName)->isValid())) {
-            echo 'Invalid file';
-            return;
+            return redirect()->route('index')->with('negative', 'invalid file');
         }
 
         $maxSize = config('file.max');
@@ -27,23 +26,20 @@ class UploadController extends Controller
 
         // check size
         if ($fileSize > $maxSize) {
-            echo 'Files must be ' . $maxSize / 1000000 . 'mb or less';
-            return;
+            return redirect()->route('index')->with('negative', 'files must be ' . $maxSize / 1000000 . 'mb or less');
         }
 
         // check file name
-        if (is_null($fileName) || empty($fileName)) {
-            echo 'invalid file name';
-            return;
+        if (is_null($fileName) || empty($fileName) || strlen($fileName) > 300) {
+            return redirect()->route('index')->with('negative', 'invalid filename');
         }
 
         // store file to disk
         $fileLocation = $file->store('uploaded_files/' . $uploader);
 
         // error storing file
-        if (!$fileLocation) {
-            echo 'could not store file';
-            return;
+        if (is_null($fileLocation) || empty($fileLocation)) {
+            return redirect()->route('index')->with('negative', 'could not store file');
         }
 
         // all is good, throw in db
@@ -51,8 +47,7 @@ class UploadController extends Controller
 
         // error inserting row
         if (!$dbFile) {
-            echo 'Could not upload at this time';
-            return;
+            return redirect()->route('index')->with('negative', 'could not upload file at this time');
         }
 
         // success, show them the file page

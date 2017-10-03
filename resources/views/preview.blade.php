@@ -5,7 +5,7 @@
 @section('body')
 
 <div class="center">
-    <p class="hint noselect defaultcursor">
+    <p class="hint grey noselect defaultcursor">
         click the file to download<br>
         @if($file->downloads)
         (last click 
@@ -55,6 +55,7 @@
 
 @section('scripts')
 
+<script type="text/javascript" src="/assets/js/preview.js"></script>
 <script type="text/javascript"> 
     downloads = {{ $file->downloads }};
 </script>

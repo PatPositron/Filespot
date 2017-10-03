@@ -3,18 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Webpatser\Uuid\Uuid;
 
 class File extends Model
 {
     protected $table = 'files';
 
+    public function generateId()
+    {
+        $characters = config('file.id.characters');
+        $length = config('file.id.length');
+
+        return substr(str_shuffle(str_repeat($characters, 5)), 0, $length);
+    }
+
     public static function insertNew($name, $size, $mimeType, $location, $uploader)
     {
-        $characters = 'abcdefghijklmnopqrstuvwxyz';
         $file = new File();
 
-        $file->public_id = substr(str_shuffle(str_repeat($characters, 5)), 0, 5);
+        $file->public_id = $file->generateId();
         $file->name = $name;
         $file->size = $size;
         $file->mimetype = $mimeType;
