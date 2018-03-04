@@ -20,7 +20,7 @@ class CreateFilesTable extends Migration
             $table->string('name', 300);
             $table->integer('size')->unsigned();
             $table->string('mimetype', 255);
-            $table->string('location');
+            $table->string('location', 512);
             $table->ipAddress('uploader');
             $table->timestamps();
         });
