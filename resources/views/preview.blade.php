@@ -8,7 +8,7 @@
     <p class="hint grey noselect defaultcursor">
         click the file to download<br>
         @if($file->downloads)
-        (last click 
+        (last download 
         @else
         (uploaded 
         @endif
