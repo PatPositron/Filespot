@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@get')->name('index');
+// Route::get('/secret', 'IndexController@secret')->name('secret');
 
 Route::post('/upload', 'UploadController@post')->name('upload');
 

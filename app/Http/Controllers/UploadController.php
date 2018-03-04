@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\File;
 
 class UploadController extends Controller
@@ -35,7 +36,7 @@ class UploadController extends Controller
         }
 
         // store file to disk
-        $fileLocation = $file->store('uploaded_files/' . $uploader);
+        $fileLocation = Storage::disk('s3')->putFileAs('uploads', $file, $uploader . '_' . sha1(time()) . '_' . $fileName);
 
         // error storing file
         if (is_null($fileLocation) || empty($fileLocation)) {

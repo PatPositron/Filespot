@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\File;
 
 class FileController extends Controller
@@ -16,9 +17,11 @@ class FileController extends Controller
     {
         $file->incrementDownloadCount();
 
-        $path = storage_path() . '/app/' . $file->location;
+        return response()->streamDownload(function () use ($file) {
 
-        return response()->download($path, $file->name, [
+            echo Storage::disk('s3')->get($file->location);
+
+        }, $file->name, [
             'Content-Type' => $file->mimetype,
             'Content-Length' => $file->size
         ]);
