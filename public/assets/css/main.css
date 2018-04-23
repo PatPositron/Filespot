@@ -48,13 +48,13 @@ h1
 .title:hover
 {
     color: rgb(30, 100, 130);
-    transition: all 100ms linear 0s;
+    /*transition: all 100ms linear 0s;*/
 }
 
 .title:hover > .o
 {
     background: rgb(30, 100, 130);
-    transition: all 100ms linear 0s;
+    /*transition: all 100ms linear 0s;*/
 }
 
 input[type=file]
@@ -112,9 +112,18 @@ input[type=file]
     color: black;
 }
 
+.url
+{
+    font-family: inherit;
+    text-align: center;
+    border-style: none;
+    outline: none;
+    width: 100%;
+}
+
 .hint
 {
-    font-size:2vmin;
+    font-size: 2vmin;
     font-weight: normal;
 }
 

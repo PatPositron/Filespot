@@ -1,8 +1,12 @@
-
 var downloads = 0;
 var hover = false;
 
+var url = $('#url');
 var icon = $('#file');
+
+url.focus(function() {
+    url.select();
+});
 
 icon.hover(function() {
     hover = true;

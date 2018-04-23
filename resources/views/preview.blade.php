@@ -5,6 +5,8 @@
 @section('body')
 
 <div class="center">
+    <input type="text" id="url" class="hint url" value="{{ $file->getPreviewUrl() }}" readonly>
+
     <p class="hint grey noselect defaultcursor">
         click the file to download<br>
         @if($file->downloads)
