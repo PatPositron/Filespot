@@ -6,7 +6,7 @@
     <meta name="description" content="Filespot direct file host">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
-    <link href="/assets/imgs/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="/assets/img/favicon.png" rel="shortcut icon" type="image/png">
     <link href="/assets/css/main.css" rel="stylesheet">
 </head>
 <body>
