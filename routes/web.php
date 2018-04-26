@@ -12,9 +12,8 @@
 */
 
 Route::get('/', 'IndexController@get')->name('index');
+Route::get('/{file}', 'FileController@preview')->name('file.preview');
+Route::get('/download/{file}', 'FileController@download')->name('file.download');
 // Route::get('/secret', 'IndexController@secret')->name('secret');
 
 Route::post('/upload', 'UploadController@post')->name('upload');
-
-Route::get('/{file}', 'FileController@preview')->name('file.preview');
-Route::get('/d/{file}', 'FileController@download')->name('file.download');

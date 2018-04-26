@@ -49,6 +49,16 @@ class File extends Model
         return route('file.download', ['file' => $this->public_id]);
     }
 
+    public function getTitle()
+    {
+        return $this->public_id . ' - ' . $this->getFormattedDownloadCount() . ' download' . (($this->downloads == 1) ? '' : 's');
+    }
+
+    public function getFormattedHint()
+    {
+        return (($this->downloads > 0) ? 'last download ': 'uploaded ') . $this->updated_at->diffForHumans();
+    }
+
     public function getFormattedDownloadCount()
     {
         return number_format($this->downloads);

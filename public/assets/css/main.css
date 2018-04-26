@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo');
 
+/* elements */
 body
 {
     background-color: white;
@@ -9,52 +10,6 @@ body
 h1
 {
     margin-bottom: 0px;
-}
-
-.container
-{
-    display: grid;
-    height: 97vh;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    align-items: center;
-    justify-items: center;
-    grid-template-areas: 'header header header'
-                         'left center right'
-                         'footer footer footer';
-}
-
-.negative
-{
-    color: red;
-}
-
-.title
-{
-    font-size: 5vmin;
-    font-weight: bold;
-    color: rgb(1, 145, 200);
-}
-
-.o
-{
-    display: inline-block;
-    width: 4vmin;
-    height: 4vmin;
-    background: rgb(1, 145, 200);
-    border-radius: 50%;
-}
-
-.title:hover
-{
-    color: rgb(30, 100, 130);
-    /*transition: all 100ms linear 0s;*/
-}
-
-.title:hover > .o
-{
-    background: rgb(30, 100, 130);
-    /*transition: all 100ms linear 0s;*/
 }
 
 input[type=file]
@@ -69,32 +24,23 @@ input[type=file]
     opacity: 0;
 }
 
-.link
+a, a:visited
 {
-    text-decoration: none;
+    color: black;
 }
 
-.noselect
+/* layout */
+.container
 {
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.noselect::selection
-{
-    background: none;
-}
-
-.handcursor
-{
-    cursor: pointer;
-}
-
-.defaultcursor
-{
-    cursor: default;
+    display: grid;
+    height: 97vh;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas: 'header header header'
+                         'left center right'
+                         'footer footer footer';
 }
 
 .header
@@ -112,30 +58,102 @@ input[type=file]
     color: black;
 }
 
+.footer
+{
+    grid-area: footer;
+    text-align: center;
+    font-size: 1vmin;
+    z-index: 1000;
+}
+
+/* helpers */
+.negative
+{
+    color: red;
+}
+
+.noselect
+{
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.noselect::selection
+{
+    background: none;
+}
+
+.defaultcursor
+{
+    cursor: default;
+}
+
+.handcursor
+{
+    cursor: pointer;
+}
+
+.grey
+{
+    color: rgb(150, 150, 150);
+}
+
+/* features */
+.title
+{
+    font-size: 5vmin;
+    font-weight: bold;
+    color: rgb(1, 145, 200);
+}
+
+.title:hover
+{
+    color: rgb(30, 100, 130);
+    /*transition: all 100ms linear 0s;*/
+}
+
+.title:hover > .spot
+{
+    background: rgb(30, 100, 130);
+    /*transition: all 100ms linear 0s;*/
+}
+
+.spot
+{
+    display: inline-block;
+    width: 4vmin;
+    height: 4vmin;
+    background: rgb(1, 145, 200);
+    border-radius: 50%;
+}
+
 .url
 {
     font-family: inherit;
     text-align: center;
     border-style: none;
     outline: none;
-    width: 100%;
+    width: 25vmin;
+}
+
+.cliphint
+{
+    font-size: 1vmin;
+    font-weight: normal;
+    margin-top: 0;
+}
+
+.link
+{
+    text-decoration: none;
 }
 
 .hint
 {
     font-size: 2vmin;
     font-weight: normal;
-}
-
-.grey
-{
-    color: rgb(190, 190, 190);
-}
-
-.filename
-{
-    font-size: 3vmin;
-    font-weight: bold;
 }
 
 .filecontainer
@@ -149,6 +167,13 @@ input[type=file]
 .svgtext
 {
     cursor: pointer;
-    font-size: 4vmin;
+    font-size: 2.5rem;
+    /*font-weight: bold;*/
+}
+
+.filename
+{
+    font-size: 3vmin;
     font-weight: bold;
+    margin-top: 1.5vmin;
 }

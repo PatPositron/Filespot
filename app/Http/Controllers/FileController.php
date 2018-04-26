@@ -17,7 +17,7 @@ class FileController extends Controller
     {
         $file->incrementDownloadCount();
 
-        return response()->streamDownload(function () use ($file) {
+        return response()->streamDownload(function() use ($file) {
 
             echo Storage::disk('s3')->get($file->location);
 

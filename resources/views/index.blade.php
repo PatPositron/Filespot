@@ -1,6 +1,6 @@
 @extends('partials.master')
 
-@section('title', 'Filespot')
+@section('title', 'FILESPOT')
 
 @section('body')
 

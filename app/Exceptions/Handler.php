@@ -5,6 +5,9 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -48,6 +51,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // redirect to index on 404/file not found
+        if ($exception instanceof NotFoundHttpException)
+            return redirect()->route('index')->with('negative', 'page not found');
+        else if ($exception instanceof ModelNotFoundException)
+            return redirect()->route('index')->with('negative', 'file not found');
+
         return parent::render($request, $exception);
     }
 }
