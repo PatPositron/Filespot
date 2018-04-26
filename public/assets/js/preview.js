@@ -6,7 +6,7 @@ var downloads = 0,
 
 url.focus(function() {
     url[0].setSelectionRange(0, url.val().length);
-    document.execCommand("copy");
+    document.execCommand('copy');
     
     clip.text(clip.attr('m2'));
 });

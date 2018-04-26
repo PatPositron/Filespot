@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
-    <meta name="description" content="Filespot - direct file host">
+    <meta name="description" content="FILESPOT - direct file host">
     <meta name="keywords" content="file, files, direct file host, direct file hosting, file host, file hosting, file upload, file upload service, file hosting service, free file host, free file hosting, free file hosting service, share, sharing, file sharing, file sharing, file sharing host">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
