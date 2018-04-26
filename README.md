@@ -1,4 +1,6 @@
 # Filespot
-Lightweight file upload site
+A lightweight file upload site
 
-Written in PHP using Laravel
+* Instantly upload any file from any device, and share the URL with any other device to download
+* Written in PHP using the Laravel Framework
+* Stores uploaded files with Amazon S3
